@@ -28,23 +28,22 @@ npx serve dist          # preview at http://localhost:3000
 
 `build.mjs` wraps each page in `src/layout.html`, marks the current page in the nav, copies `public/` and writes `sitemap.xml`. Pages marked `robots: noindex` (404, privacy) are left out of the sitemap.
 
-## Cloudflare Pages settings
+## Cloudflare settings (Workers & Pages → Create → Import a repository)
 
 | Setting | Value |
 |---|---|
-| Framework preset | None |
+| Project name | `threedotsadvisory` (must match `name` in `wrangler.jsonc`) |
 | Build command | `node build.mjs` |
-| Build output directory | `dist` |
-| Root directory | *(leave blank)* |
-| Production branch | `main` (or whichever branch you deploy from) |
+| Deploy command | `npx wrangler deploy` |
+| Path | `/` |
 
-`public/_headers` sets security headers (a strict CSP, HSTS, no framing), long-term caching for fonts, and `noindex` on `*.pages.dev` preview URLs.
+`wrangler.jsonc` tells Cloudflare to serve `dist/` as static assets, with `404.html` for missing pages. `public/_headers` sets security headers (a strict CSP, HSTS, no framing) and long-term caching for fonts.
 
 ## Domain (GoDaddy registrar, Cloudflare DNS)
 
 1. In Cloudflare, add the site `threedotsadvisory.com` on the Free plan. **Check that the imported DNS records include every MX, SPF (TXT), DKIM and DMARC record**, because they carry alan@threedotsadvisory.com. Compare them against GoDaddy's DNS page before switching.
 2. In GoDaddy, go to **Domain → DNS → Nameservers → Change → "I'll use my own nameservers"** and enter the two Cloudflare nameservers. Turn off DNSSEC at GoDaddy first if it's on.
-3. Once Cloudflare shows the domain as **Active**, open **Pages project → Custom domains** and add `threedotsadvisory.com`, then `www.threedotsadvisory.com`.
+3. Once Cloudflare shows the domain as **Active**, delete the old Website Builder A records and the `www` CNAME. Then open **Workers & Pages → threedotsadvisory → Settings → Domains & Routes → Add → Custom domain** and add `threedotsadvisory.com`, then `www.threedotsadvisory.com`.
 4. To redirect `www` to the apex, go to **Rules → Redirect Rules** and create a rule for hostname `www.threedotsadvisory.com` that does a dynamic 301 to `concat("https://threedotsadvisory.com", http.request.uri.path)`, preserving the query string.
 5. Turn on **SSL/TLS → Edge Certificates → Always Use HTTPS**.
 
