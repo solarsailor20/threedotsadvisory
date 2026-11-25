@@ -2,6 +2,10 @@
 
 Public website for **Three Dots Advisory LLC**: four pages (Home, Approach, About, Contact), plus a 404 page and a placeholder privacy page. The site is plain static HTML/CSS with no framework, no tracking and no forms. The only contact path is a `mailto:` link.
 
+> **Current version: single page.** The site is temporarily just the "Three Dots Advisory" wordmark, centered on the page. The full four-page site is saved on the `archive/full-site` branch (tag `v2026.11.25-full-site`). Old page URLs (`/approach/`, `/about/`, `/contact/`, `/privacy/`) redirect to the home page with a temporary 302 via `public/_redirects`.
+>
+> To restore the full site: `git checkout archive/full-site -- src public README.md && git rm public/_redirects`, then build, commit and push. Cloudflare redeploys automatically. (The table below describes the full site.)
+
 ## Editing the site
 
 | What to change | File |

@@ -1,0 +1,6 @@
+# Pages from the full site, sent to the home page while the single-page version is live.
+# Temporary (302) so search engines keep the old URLs for when the full site returns.
+/approach/  /  302
+/about/     /  302
+/contact/   /  302
+/privacy/   /  302

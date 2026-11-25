@@ -22,60 +22,11 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css?v={{version}}">
-<script src="/assets/js/site.js?v={{version}}" defer></script>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <div class="site-header__bar wrap">
-    <a class="wordmark" href="/">Three Dots Advisory</a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span class="visually-hidden">Menu</span>
-      <span class="menu-toggle__bar" aria-hidden="true"></span>
-      <span class="menu-toggle__bar" aria-hidden="true"></span>
-    </button>
-    <nav class="site-nav" id="site-nav" aria-label="Main">
-      <ul>
-        <li class="only-mobile"><a href="/" data-nav="home">Home</a></li>
-        <li><a href="/approach/" data-nav="approach">Approach</a></li>
-        <li><a href="/about/" data-nav="about">About</a></li>
-        <li><a class="site-nav__cta" href="/contact/" data-nav="contact">Send an inquiry<span class="only-mobile"> →</span></a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
+<main class="stage">
 {{content}}
 </main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="site-footer__grid">
-      <div>
-        <div class="site-footer__name">Three Dots Advisory</div>
-        <div class="site-footer__sub">Registered Investment Adviser<br>Murray Hill, Manhattan</div>
-      </div>
-      <div class="site-footer__col">
-        <div class="site-footer__label">Pages</div>
-        <a href="/">Home</a>
-        <a href="/approach/">Approach</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
-      </div>
-      <div class="site-footer__col">
-        <div class="site-footer__label">Disclosures</div>
-        <a href="https://adviserinfo.sec.gov/firm/summary/342640" target="_blank" rel="noopener">Form ADV Part 2A &amp; 2B</a>
-        <a href="https://adviserinfo.sec.gov/firm/summary/342640" target="_blank" rel="noopener">Firm record on IAPD</a>
-        <a href="/privacy/">Privacy policy</a>
-      </div>
-    </div>
-    <p class="site-footer__disclosure">Three Dots Advisory LLC is a registered investment adviser in the State of New York (CRD #342640). Registration does not imply a certain level of skill or training. The firm may transact business only in states where it is registered or exempt from registration. This website is for informational purposes only and is not an offer, a solicitation, or personalized investment, legal or tax advice. All investing involves risk, including possible loss of principal. Futures and leveraged strategies involve substantial risk and magnify both gains and losses.</p>
-    <div class="site-footer__copy">© 2026 Three Dots Advisory LLC</div>
-  </div>
-</footer>
 </body>
 </html>
